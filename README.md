@@ -10,15 +10,28 @@ GitHub action to generate a CycloneDX SBOM for Swift and Objective-C projects th
 The version of *cyclonedx-cocoapods* to use.
 Minimum allowed version is v1.0.0. Must be an [existing semantic version](https://github.com/CycloneDX/cyclonedx-cocoapods/releases).
 
-### `some other input`
-
-etc, etc...
-
 ## Example usage
 
-```yaml
-- name: Generate SBOMs
-  uses: CycloneDX/gh-cocoapods-generate-sbom@v1
+Add the following entry to your Github workflow YAML file:
 
-...to be filled in
+```
+uses: CycloneDX/cyclonedx-cocoapods
+with:
+  path: '.'
+```
+
+### Example using all optional inputs:
+
+```
+uses: CycloneDX/cyclonedx-cocoapods
+with:
+  path: "."
+  version: 1.1.1 # optional
+  bom_version: 1 # optional
+  component_type: application # optional
+  component_group: com.example # optional
+  component_name: App # optional
+  component_version: 0.0.1 # optional
+  exclude_test: true # optional
+  output: bom.xml # optional
 ```
